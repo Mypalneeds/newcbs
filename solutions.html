@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Solutions | Creative Branding Solutions — Promotional Products West Africa</title>
+  <meta name="description" content="Creative Branding Solutions offers End User, Retail, and Institutional Promotions. Custom-built promotional products and branded merchandise across West Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+
+    /* ── SOLUTIONS NAV TABS ── */
+    .sol-tabs {
+      display: flex; gap: 0; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      margin-top: 56px; flex-wrap: wrap;
+    }
+    .sol-tab {
+      flex: 1; padding: 20px 28px; cursor: pointer;
+      font-family: var(--font-h); font-weight: 800; font-size: 1rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); border-right: 1px solid var(--border);
+      transition: all .25s var(--ease); text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      border-bottom: 3px solid transparent; background: none; border-top: none; border-left: none;
+    }
+    .sol-tab:last-child { border-right: none; }
+    .sol-tab.active, .sol-tab:hover { color: #fff; background: rgba(255,51,0,.12); border-bottom-color: var(--red); }
+    .sol-tab i { font-size: 1.1rem; }
+
+    /* ── SOLUTION PANELS ── */
+    .sol-panel { display: none; }
+    .sol-panel.active { display: block; }
+
+    .sol-hero {
+      margin-top: 56px; border-radius: 20px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 520px;
+    }
+    .sol-hero-img { position: relative; overflow: hidden; }
+    .sol-hero-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.85); transition: transform .6s var(--ease); }
+    .sol-hero:hover .sol-hero-img img { transform: scale(1.03); }
+    .sol-hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,51,0,.35) 0%, transparent 60%);
+    }
+    .sol-hero-img-tag {
+      position: absolute; bottom: 24px; left: 24px;
+      background: var(--red); color: #fff;
+      font-family: var(--font-h); font-weight: 800; font-size: .78rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 100px;
+    }
+
+    .sol-hero-content {
+      background: var(--ink2); padding: 56px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .sol-hero-content .eyebrow { color: var(--red); }
+    .sol-hero-content .eyebrow::before { background: var(--red); }
+    .sol-hero-content h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: #fff; margin: 16px 0 20px; }
+    .sol-hero-content p  { font-size: .92rem; color: rgba(255,255,255,.55); line-height: 1.85; margin-bottom: 32px; }
+    .sol-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .sol-feat {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.6;
+    }
+    .sol-feat i { color: var(--amber); margin-top: 3px; flex-shrink: 0; }
+
+    /* ── PRODUCT CATEGORIES ── */
+    .products-section { background: #fff; color: var(--ink); }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .product-card {
+      border-radius: 12px; overflow: hidden; border: 2px solid #eaecf0;
+      transition: all .3s var(--ease);
+    }
+    .product-card:hover { border-color: var(--red); box-shadow: 0 16px 48px rgba(255,51,0,.1); transform: translateY(-4px); }
+    .product-img { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); filter: brightness(.9); }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-cat {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--ink); color: rgba(255,255,255,.8);
+      font-family: var(--font-h); font-weight: 700; font-size: .7rem;
+      letter-spacing: .12em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+    }
+    .product-body { padding: 22px; }
+    .product-body h4 { font-size: 1rem; letter-spacing: .04em; color: var(--ink); margin-bottom: 8px; }
+    .product-body p  { font-size: .82rem; color: #6b7280; line-height: 1.65; margin-bottom: 16px; }
+    .product-link {
+      font-family: var(--font-h); font-weight: 700; font-size: .78rem;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--red);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .product-link i { font-size: .7em; transition: transform .2s; }
+    .product-card:hover .product-link i { transform: translateX(4px); }
+
+    /* ── PROCESS (per solution) ── */
+    .sol-process { background: var(--ink2); }
+    .sol-process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; margin-top: 56px; }
+    .sp-card {
+      background: rgba(255,255,255,.02); padding: 40px 28px;
+      transition: background .3s; position: relative; overflow: hidden;
+    }
+    .sp-card:hover { background: rgba(255,255,255,.05); }
+    .sp-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .sp-card:hover::after { transform: scaleX(1); }
+    .sp-num {
+      font-family: var(--font-h); font-weight: 900; font-size: 3.5rem;
+      color: rgba(255,255,255,.05); line-height: 1; margin-bottom: 16px;
+    }
+    .sp-icon {
+      width: 52px; height: 52px; border-radius: 10px;
+      background: rgba(255,51,0,.1); border: 1px solid rgba(255,51,0,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--red); margin-bottom: 18px;
+      transition: all .3s;
+    }
+    .sp-card:hover .sp-icon { background: var(--red); color: #fff; border-color: var(--red); }
+    .sp-card h4 { font-size: .95rem; letter-spacing: .04em; color: #fff; margin-bottom: 8px; }
+    .sp-card p  { font-size: .82rem; color: rgba(255,255,255,.4); line-height: 1.7; }
+
+    /* ── CASE STUDY STRIP ── */
+    .case-strip { background: var(--ink); }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .case-card {
+      border-radius: 14px; overflow: hidden; position: relative;
+      aspect-ratio: 4/3; background: var(--ink2); cursor: pointer;
+    }
+    .case-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.65); transition: transform .6s var(--ease); }
+    .case-card:hover img { transform: scale(1.06); }
+    .case-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,14,26,.92) 0%, transparent 55%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+    }
+    .case-tag {
+      font-family: var(--font-h); font-weight: 700; font-size: .72rem;
+      letter-spacing: .15em; text-transform: uppercase; color: var(--red);
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px;
+    }
+    .case-tag::before { content: '—'; }
+    .case-card h4 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; }
+    .case-card span { font-size: .78rem; color: rgba(255,255,255,.45); }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--off); color: var(--ink); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .pricing-card {
+      background: #fff; border: 2px solid #e5e9f0; border-radius: 14px;
+      padding: 40px 32px; position: relative; transition: all .3s var(--ease);
+    }
+    .pricing-card:hover { border-color: var(--red); box-shadow: 0 16px 48px rgba(0,0,0,.1); }
+    .pricing-card.featured { background: var(--ink); border-color: var(--ink); transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,.2); }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--amber); color: var(--ink);
+      font-family: var(--font-h); font-weight: 800; font-size: .72rem;
+      letter-spacing: .12em; text-transform: uppercase; padding: 6px 20px; border-radius: 100px;
+    }
+    .pricing-tier { font-family: var(--font-h); font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .pricing-card.featured .pricing-tier { color: rgba(255,255,255,.4); }
+    .pricing-name { font-size: 1.5rem; letter-spacing: .02em; color: var(--ink); margin-bottom: 8px; }
+    .pricing-card.featured .pricing-name { color: #fff; }
+    .pricing-price { font-family: var(--font-h); font-weight: 900; font-size: 3rem; color: var(--red); line-height: 1; margin: 20px 0 10px; }
+    .pricing-card.featured .pricing-price { color: var(--amber); }
+    .pricing-price sup { font-size: 1.2rem; vertical-align: super; }
+    .pricing-price sub { font-size: 1rem; font-weight: 600; color: var(--muted); }
+    .pricing-card.featured .pricing-price sub { color: rgba(255,255,255,.35); }
+    .pricing-desc { font-size: .83rem; color: #6b7280; margin-bottom: 24px; line-height: 1.65; }
+    .pricing-card.featured .pricing-desc { color: rgba(255,255,255,.5); }
+    .pricing-divider { height: 1px; background: #e5e9f0; margin-bottom: 22px; }
+    .pricing-card.featured .pricing-divider { background: rgba(255,255,255,.08); }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: .83rem; color: var(--ink); line-height: 1.55; }
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,.75); }
+    .pricing-features li i { color: #22c55e; font-size: .7rem; margin-top: 4px; flex-shrink: 0; }
+
+    /* ── FAQ ── */
+    .faq-section { background: #fff; color: var(--ink); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+    .faq-item {
+      border: 2px solid #eaecf0; border-radius: 12px; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item.open { border-color: var(--red); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 24px; cursor: pointer; gap: 16px;
+      font-family: var(--font-h); font-weight: 800; font-size: 1rem;
+      letter-spacing: .03em; color: var(--ink); text-transform: uppercase;
+    }
+    .faq-q i { font-size: .85rem; color: var(--red); transition: transform .3s; flex-shrink: 0; }
+    .faq-item.open .faq-q i { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 24px 22px; font-size: .87rem; color: #6b7280; line-height: 1.8; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .sol-hero        { grid-template-columns: 1fr; }
+      .sol-hero-img    { min-height: 320px; }
+      .products-grid   { grid-template-columns: 1fr 1fr; }
+      .sol-process-grid{ grid-template-columns: 1fr 1fr; }
+      .case-grid       { grid-template-columns: 1fr 1fr; }
+      .pricing-grid    { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .pricing-card.featured { transform: none; }
+      .faq-grid        { grid-template-columns: 1fr; }
+    }
+    @media(max-width:768px){
+      .products-grid   { grid-template-columns: 1fr; }
+      .sol-process-grid{ grid-template-columns: 1fr; }
+      .case-grid       { grid-template-columns: 1fr; }
+      .sol-tabs        { flex-direction: column; }
+      .sol-tab         { border-right: none; border-bottom: 1px solid var(--border); }
+      .sol-hero-content { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="always-solid">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ECS<span>Promo</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="solutions.html" class="active">Solutions</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-red">Get a Quote <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="solutions.html">Solutions</a><a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-red" style="margin-top:12px;">Get a Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('Images/branded_drinkware.webp');"></div>
+  <div class="blob blob-red-tr"></div>
+  <div class="blob blob-amber-bl"></div>
+  <div class="dot-grid dot-grid-tr"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Solutions</span>
+      </div>
+      <div class="page-hero-eyebrow">What We Offer</div>
+      <h1 class="page-hero-title reveal">Our <span>Solutions</span></h1>
+      <p class="page-hero-desc reveal d1">
+        Three powerful promotional offerings designed to meet every brand's marketing objective — from direct consumer engagement to corporate institutional campaigns.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fas fa-circle"></i>End User Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Retail Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Institutional Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Custom Branded Gifts</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Global Sourcing</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>On-Time Delivery</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>End User Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Retail Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Institutional Promotions</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Custom Branded Gifts</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Global Sourcing</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>On-Time Delivery</span>
+  </div>
+</div>
+
+<!-- SOLUTIONS TABS -->
+<section class="section-pad" style="background:var(--ink);" id="solutions-tabs">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto;">
+      <div class="eyebrow eyebrow-amber reveal" style="justify-content:center;">Three Pillars of Promotion</div>
+      <h2 class="title-light reveal d1">Choose Your <span>Solution</span></h2>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.8;margin-top:16px;" class="reveal d2">
+        Select a solution type to explore how Creative Branding Solutions can bring your brand's promotional ambitions to life.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="sol-tabs reveal d2">
+      <button class="sol-tab active" data-tab="end-user" id="end-user">
+        <i class="fas fa-users"></i> End User Promotions
+      </button>
+      <button class="sol-tab" data-tab="retail" id="retail">
+        <i class="fas fa-store"></i> Retail Promotions
+      </button>
+      <button class="sol-tab" data-tab="institutional" id="institutional">
+        <i class="fas fa-building"></i> Institutional Promotions
+      </button>
+    </div>
+
+    <!-- END USER PANEL -->
+    <div class="sol-panel active" id="panel-end-user">
+      <div class="sol-hero">
+        <div class="sol-hero-img">
+          <img src="Images/branded_drinkware.webp" alt="End User Promotions Nigeria" loading="lazy" />
+          <div class="sol-hero-img-overlay"></div>
+          <div class="sol-hero-img-tag">End User Promotions</div>
+        </div>
+        <div class="sol-hero-content">
+          <div class="eyebrow">Direct to Consumer</div>
+          <h2>End User Promotions</h2>
+          <p>End User Promotions are consumer-facing campaigns designed to drive direct brand engagement, trial, and purchase loyalty. We design, source, and deliver promotional products that put your brand in the hands of the people that matter most — your customers.</p>
+          <div class="sol-features">
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Consumer pack-in gifts and purchase incentives</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Loyalty reward merchandise and gift-with-purchase</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>On-pack and in-pack promotional products</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Consumer competition prizes and branded giveaways</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Sampling kits and brand trial product sets</div>
+          </div>
+          <a href="contact.html" class="btn btn-red btn-lg">Get a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RETAIL PANEL -->
+    <div class="sol-panel" id="panel-retail">
+      <div class="sol-hero">
+        <div class="sol-hero-img">
+          <img src="Images/event_materials.webp" alt="Retail Promotions Nigeria" loading="lazy" />
+          <div class="sol-hero-img-overlay"></div>
+          <div class="sol-hero-img-tag">Retail Promotions</div>
+        </div>
+        <div class="sol-hero-content">
+          <div class="eyebrow">In-Store Activation</div>
+          <h2>Retail Promotions</h2>
+          <p>Retail Promotions are targeted at converting browsers into buyers at the point of sale. From branded POS materials to full in-store activation setups, we help brands own the retail environment and drive measurable sales uplift at every touchpoint.</p>
+          <div class="sol-features">
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Point-of-sale (POS) display and branded materials</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>In-store activation kits and merchandising tools</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Retail staff uniform and branded apparel</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Shelf talkers, wobblers, and product display units</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Branded shopping bags, packaging, and carrier items</div>
+          </div>
+          <a href="contact.html" class="btn btn-red btn-lg">Get a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTITUTIONAL PANEL -->
+    <div class="sol-panel" id="panel-institutional">
+      <div class="sol-hero">
+        <div class="sol-hero-img">
+          <img src="Images/institutional_promotions.webp" alt="Institutional Promotions Nigeria" loading="lazy" />
+          <div class="sol-hero-img-overlay"></div>
+          <div class="sol-hero-img-tag">Institutional Promotions</div>
+        </div>
+        <div class="sol-hero-content">
+          <div class="eyebrow">B2B Corporate Gifting</div>
+          <h2>Institutional Promotions</h2>
+          <p>Institutional Promotions cater to large-scale corporate gifting, government engagement, and staff incentive programmes. We source and produce premium branded merchandise that makes your organisation stand out — at conferences, annual events, and year-round corporate engagements.</p>
+          <div class="sol-features">
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Executive corporate gift sets and premium hampers</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Staff appreciation and recognition merchandise</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Conference and event branded giveaways</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Government and ministry branded presentation items</div>
+            <div class="sol-feat"><i class="fas fa-check-circle"></i>Large-volume institutional procurement at scale</div>
+          </div>
+          <a href="contact.html" class="btn btn-red btn-lg">Get a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+<section class="products-section section-pad">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:0;">
+      <div>
+        <div class="eyebrow reveal">Product Range</div>
+        <h2 class="title-dark reveal d1">What We Can <span>Brand For You</span></h2>
+        <p style="font-size:.95rem;color:#6b7280;line-height:1.8;max-width:480px;margin-top:12px;" class="reveal d2">
+          From drinkware to apparel, tech accessories to luxury stationery — our global sourcing capability means we can brand almost anything.
+        </p>
+      </div>
+      <a href="contact.html" class="btn btn-red reveal d1">Request a Sample <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="Images/branded_apparel.webp" alt="Branded apparel Nigeria" loading="lazy" />
+          <div class="product-cat">Apparel</div>
+        </div>
+        <div class="product-body">
+          <h4>Branded Apparel &amp; Uniforms</h4>
+          <p>T-shirts, polo shirts, caps, jackets, overalls, and full uniform sets branded with your logo via embroidery or high-quality print.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="product-card reveal d1">
+        <div class="product-img">
+          <img src="Images/corporate_gifts.webp" alt="Corporate gifts Nigeria" loading="lazy" />
+          <div class="product-cat">Gifts</div>
+        </div>
+        <div class="product-body">
+          <h4>Corporate Gift Sets &amp; Hampers</h4>
+          <p>Thoughtfully curated branded gift sets and luxury hampers for client appreciation, seasonal campaigns, and stakeholder engagement.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="product-card reveal d2">
+        <div class="product-img">
+          <img src="Images/branded_drinkware.webp" alt="Branded drinkware" loading="lazy" />
+          <div class="product-cat">Drinkware</div>
+        </div>
+        <div class="product-body">
+          <h4>Drinkware &amp; Mugs</h4>
+          <p>Custom branded mugs, tumblers, water bottles, and flasks — everyday items that keep your brand top-of-mind all day long.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="Images/branded_stationery.webp" alt="Branded stationery Nigeria" loading="lazy" />
+          <div class="product-cat">Stationery</div>
+        </div>
+        <div class="product-body">
+          <h4>Stationery &amp; Notebooks</h4>
+          <p>Branded pens, notebooks, diaries, folders, sticky notes, and desk accessories — premium print quality for every office touchpoint.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="product-card reveal d1">
+        <div class="product-img">
+          <img src="Images/event_materials.webp" alt="Event branded materials" loading="lazy" />
+          <div class="product-cat">Events</div>
+        </div>
+        <div class="product-body">
+          <h4>Event &amp; Activation Materials</h4>
+          <p>Gazebos, banners, branded tablecloths, lanyards, wristbands, and full event kits that make your brand impossible to miss at every activation.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="product-card reveal d2">
+        <div class="product-img">
+          <img src="Images/tech_accessories.webp" alt="Branded tech accessories" loading="lazy" />
+          <div class="product-cat">Tech</div>
+        </div>
+        <div class="product-body">
+          <h4>Tech Accessories &amp; Gadgets</h4>
+          <p>Power banks, USB drives, wireless chargers, earbuds, and more — premium branded tech gifts that recipients genuinely value and use.</p>
+          <a href="contact.html" class="product-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sol-process section-pad">
+  <div class="container">
+    <div style="text-align:center;max-width:540px;margin:0 auto;">
+      <div class="eyebrow eyebrow-white reveal" style="justify-content:center;">Our Process</div>
+      <h2 class="title-light reveal d1">From Brief to <span>Delivery</span></h2>
+      <p style="font-size:.92rem;color:rgba(255,255,255,.45);line-height:1.8;margin-top:16px;" class="reveal d2">
+        Every Creative Branding Solutions engagement follows a proven 4-step framework that ensures quality, speed, and zero surprises.
+      </p>
+    </div>
+    <div class="sol-process-grid">
+      <div class="sp-card reveal">
+        <div class="sp-num">01</div>
+        <div class="sp-icon"><i class="fas fa-comments"></i></div>
+        <h4>Brief &amp; Consultation</h4>
+        <p>You share your campaign objectives, target audience, budget range, and timeline. Our team asks the right questions to fully understand your promotional goals.</p>
+      </div>
+      <div class="sp-card reveal d1">
+        <div class="sp-num">02</div>
+        <div class="sp-icon"><i class="fas fa-search"></i></div>
+        <h4>Sourcing &amp; Concept</h4>
+        <p>We leverage our global sourcing network to identify the best products and present a tailored proposal with samples, specs, and design mockups for your approval.</p>
+      </div>
+      <div class="sp-card reveal d2">
+        <div class="sp-num">03</div>
+        <div class="sp-icon"><i class="fas fa-industry"></i></div>
+        <h4>Production &amp; QC</h4>
+        <p>Once approved, we go into production with rigorous quality checks at every stage — ensuring every item meets Creative Branding Solutions's exacting quality standards before dispatch.</p>
+      </div>
+      <div class="sp-card reveal d3">
+        <div class="sp-num">04</div>
+        <div class="sp-icon"><i class="fas fa-truck"></i></div>
+        <h4>Delivery &amp; Follow-Up</h4>
+        <p>Your branded products are delivered on time, anywhere in Nigeria and across West Africa. We follow up to confirm satisfaction and plan your next campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-strip section-pad">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:56px;">
+      <div>
+        <div class="eyebrow eyebrow-amber reveal">Our Work</div>
+        <h2 class="title-light reveal d1">Campaigns We've <span>Delivered</span></h2>
+      </div>
+      <a href="contact.html" class="btn btn-outline-white reveal d1">Start Your Campaign <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="case-grid">
+      <div class="case-card reveal">
+        <img src="Images/retail_promotions.webp" alt="FMCG brand activation Nigeria" loading="lazy" />
+        <div class="case-overlay">
+          <div class="case-tag">End User Promotion</div>
+          <h4>FMCG Consumer Campaign</h4>
+          <span>Lagos · 50,000 units delivered</span>
+        </div>
+      </div>
+      <div class="case-card reveal d1">
+        <img src="Images/retail_promotions.webp" alt="Retail bakery branded setup" loading="lazy" />
+        <div class="case-overlay">
+          <div class="case-tag">Retail Promotion</div>
+          <h4>Supermarket Bakery Activation</h4>
+          <span>Justrite Stores · Lagos</span>
+        </div>
+      </div>
+      <div class="case-card reveal d2">
+        <img src="Images/institutional_promotions.webp" alt="Corporate gifts government ministry Nigeria" loading="lazy" />
+        <div class="case-overlay">
+          <div class="case-tag">Institutional Promotion</div>
+          <h4>Federal Ministry Gift Programme</h4>
+          <span>Abuja · Government Institutional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section section-pad">
+  <div class="container">
+    <div style="text-align:center;max-width:540px;margin:0 auto;">
+      <div class="eyebrow reveal" style="justify-content:center;">Transparent Pricing</div>
+      <h2 class="title-dark reveal d1">Simple Packages, <span>Clear Value</span></h2>
+      <p style="font-size:.92rem;color:#6b7280;line-height:1.8;margin-top:16px;" class="reveal d2">
+        Starting packages for common campaign needs. All clients receive a free consultation and custom quote tailored to their brief.
+      </p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">Promo Starter</div>
+        <div class="pricing-price"><sup>₦</sup>150<sub>k</sub></div>
+        <div class="pricing-desc">Ideal for small businesses and startups needing their first branded promotional run.</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i>Up to 50 units branded merchandise</li>
+          <li><i class="fas fa-check-circle"></i>1 product category</li>
+          <li><i class="fas fa-check-circle"></i>Standard branding (print or embroidery)</li>
+          <li><i class="fas fa-check-circle"></i>Lagos delivery included</li>
+          <li><i class="fas fa-check-circle"></i>2-week turnaround</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline-red" style="width:100%;justify-content:center;">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="pricing-card featured reveal d1">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Growth</div>
+        <div class="pricing-name">Campaign Pack</div>
+        <div class="pricing-price"><sup>₦</sup>450<sub>k</sub></div>
+        <div class="pricing-desc">Perfect for brands running a focused End User or Retail promotional campaign.</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i>Up to 250 units across 2–3 categories</li>
+          <li><i class="fas fa-check-circle"></i>Custom concept &amp; design included</li>
+          <li><i class="fas fa-check-circle"></i>Premium branding quality</li>
+          <li><i class="fas fa-check-circle"></i>Nationwide Nigeria delivery</li>
+          <li><i class="fas fa-check-circle"></i>Dedicated account manager</li>
+          <li><i class="fas fa-check-circle"></i>1-week express option available</li>
+        </ul>
+        <a href="contact.html" class="btn btn-amber btn-lg" style="width:100%;justify-content:center;">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="pricing-card reveal d2">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-name">Full Campaign</div>
+        <div class="pricing-price"><sup>₦</sup>Custom</div>
+        <div class="pricing-desc">For multinationals and large-scale Institutional Promotion programmes at full volume.</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i>Unlimited units, any product mix</li>
+          <li><i class="fas fa-check-circle"></i>Full campaign strategy support</li>
+          <li><i class="fas fa-check-circle"></i>Global sourcing &amp; procurement</li>
+          <li><i class="fas fa-check-circle"></i>Pan-West Africa fulfilment</li>
+          <li><i class="fas fa-check-circle"></i>Priority production queue</li>
+          <li><i class="fas fa-check-circle"></i>Post-campaign ROI reporting</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark" style="width:100%;justify-content:center;">Talk to Us <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section section-pad">
+  <div class="container">
+    <div style="text-align:center;max-width:520px;margin:0 auto 56px;">
+      <div class="eyebrow reveal" style="justify-content:center;">Frequently Asked</div>
+      <h2 class="title-dark reveal d1">Common <span>Questions</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">What is the minimum order quantity? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">Our minimum order is typically 50 units for most product categories, though this varies by product type. We cater to both small- and large-scale requirements — contact us to discuss your specific needs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does production take? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">Standard turnaround is 10–14 business days from artwork approval. For urgent campaigns, we offer a 5–7 day express service for most products. Complex custom items may require additional lead time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you deliver outside Lagos? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">Yes. We deliver across Nigeria — Abuja, Port Harcourt, Kano, Ibadan, and all major cities. We also fulfil orders across West Africa via our ECS Group logistics infrastructure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I request a product sample before ordering? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">Absolutely. We strongly encourage sampling for new clients. Pre-production samples can be arranged for most product categories. Contact us to request a sample kit relevant to your campaign type.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What branding methods do you use? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">We use embroidery, screen printing, digital printing, laser engraving, debossing, heat transfer, and sublimation printing — the method is chosen based on the product and your brand guidelines.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you source products internationally? <i class="fas fa-plus"></i></div>
+        <div class="faq-a">Yes. Creative Branding Solutions has robust global sourcing capability — we procure from trusted suppliers in Asia, Europe, and locally in Nigeria to ensure the best quality at the most competitive prices for your brief.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip section-pad">
+  <div class="cta-strip-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&auto=format&fit=crop&q=40');"></div>
+  <div class="cta-strip-bar"></div>
+  <div class="container">
+    <div class="cta-strip-inner">
+      <div class="reveal">
+        <div class="eyebrow eyebrow-white">Start Today</div>
+        <h2 class="cta-strip-title">Ready to <span>Activate</span> Your Brand?</h2>
+        <p class="cta-strip-desc">Share your brief with our team. We'll respond within one business day with a tailored proposal — no obligation, no fluff.</p>
+      </div>
+      <div class="cta-strip-actions reveal d1">
+        <a href="contact.html" class="btn btn-red btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+        <a href="about.html" class="btn btn-outline-white btn-lg">About Creative Branding Solutions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">ECS<span>Promo</span></div>
+          <p class="footer-desc">Unique gifting and promotional products for multinational and indigenous companies across West Africa. Part of ECS Group.</p>
+          <div class="footer-contact-line"><i class="fas fa-map-marker-alt"></i> 1, Limca Way, Isolo Industrial Estate, Isolo-Lagos, Nigeria.</div>
+          <div class="footer-contact-line"><i class="fas fa-envelope"></i> b2b@ecs.com.ng</div>
+          <div class="footer-contact-line"><i class="fas fa-phone"></i> +234-9017264720</div>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Our Solutions</h5>
+          <ul class="footer-links">
+            <li><a href="#end-user">End User Promotions</a></li>
+            <li><a href="#retail">Retail Promotions</a></li>
+            <li><a href="#institutional">Institutional Promotions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">About Creative Branding Solutions</a></li>
+            <li><a href="about.html#ecs">ECS Group</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h5>Other Links</h5>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Enquire Now</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 ECS Corporate. All rights reserved.</div>
+      <div class="footer-ecs">Part of the <span>ECS Group</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Always solid nav
+  document.querySelector('#navbar')?.classList.add('solid');
+
+  // Mobile menu
+  document.getElementById('navToggle')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+  document.getElementById('mobileClose')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+  // Tabs
+  document.querySelectorAll('.sol-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.sol-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.sol-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), {threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Creative Branding Solutions | Get a Quote — Lagos, Nigeria</title>
+  <meta name="description" content="Contact Creative Branding Solutions for branded merchandise, corporate gifts, and promotional product quotes. Located at 1, Limca Way, Isolo Industrial Estate, Lagos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+
+    /* ── CONTACT LAYOUT ── */
+    .contact-section { background: var(--ink); }
+
+    .contact-split {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+    }
+
+    /* LEFT PANEL */
+    .contact-info-panel {}
+    .contact-info-panel .eyebrow { color: var(--amber); }
+    .contact-info-panel .eyebrow::before { background: var(--amber); }
+    .contact-info-panel h2 { font-size: clamp(2.4rem, 4vw, 3.5rem); color: #fff; margin: 16px 0 20px; }
+    .contact-info-panel > p { font-size: .92rem; color: rgba(255,255,255,.5); line-height: 1.85; margin-bottom: 40px; }
+
+    .info-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .info-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 20px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: all .3s var(--ease);
+    }
+    .info-card:hover { border-color: rgba(255,51,0,.35); background: rgba(255,51,0,.04); }
+    .info-icon {
+      width: 46px; height: 46px; min-width: 46px; border-radius: 10px;
+      background: rgba(255,51,0,.1); border: 1px solid rgba(255,51,0,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--red);
+    }
+    .info-card h5 { font-family: var(--font-h); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 5px; }
+    .info-card p  { font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+    .info-card a  { color: rgba(255,255,255,.7); }
+    .info-card a:hover { color: var(--amber); }
+
+    .contact-hours {
+      background: rgba(255,153,0,.07); border: 1px solid rgba(255,153,0,.15);
+      border-radius: 12px; padding: 22px 20px; margin-bottom: 36px;
+    }
+    .contact-hours h5 { font-family: var(--font-h); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: .84rem; color: rgba(255,255,255,.5); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:last-child { color: rgba(255,255,255,.75); font-weight: 500; }
+    .hours-row.today span:last-child { color: var(--amber); }
+
+    .contact-socials { }
+    .contact-socials h5 { font-family: var(--font-h); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 14px; }
+    .social-row { display: flex; gap: 10px; }
+    .social-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 18px; border-radius: 8px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      font-family: var(--font-h); font-weight: 700; font-size: .78rem;
+      letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.55);
+      transition: all .2s;
+    }
+    .social-link:hover { background: var(--red); border-color: var(--red); color: #fff; }
+    .social-link i { font-size: .9rem; }
+
+    /* RIGHT PANEL — FORM */
+    .contact-form-panel {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px 44px;
+    }
+    .form-header { margin-bottom: 36px; }
+    .form-header h3 { font-size: 1.5rem; letter-spacing: .04em; color: #fff; margin-bottom: 8px; }
+    .form-header p  { font-size: .85rem; color: rgba(255,255,255,.4); line-height: 1.7; }
+
+    .form-body { display: flex; flex-direction: column; gap: 20px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-family: var(--font-h); font-size: .75rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 14px 18px; border-radius: 8px;
+      border: 2px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      font-family: var(--font-b); font-size: .88rem; color: #fff;
+      outline: none; transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,.2); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--red); }
+    .form-group select option { background: var(--ink2); color: #fff; }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .budget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .budget-opt { position: relative; }
+    .budget-opt input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .budget-label {
+      display: block; padding: 12px 10px; border-radius: 8px; text-align: center; cursor: pointer;
+      border: 2px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03);
+      font-family: var(--font-h); font-weight: 700; font-size: .78rem;
+      letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.4);
+      transition: all .2s;
+    }
+    .budget-opt input[type="radio"]:checked + .budget-label {
+      border-color: var(--red); background: rgba(255,51,0,.12); color: #fff;
+    }
+    .budget-label:hover { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.7); }
+
+    .form-submit { position: relative; }
+    .form-submit .btn { width: 100%; justify-content: center; }
+    .form-note { font-size: .78rem; color: rgba(255,255,255,.25); text-align: center; margin-top: 12px; }
+    .form-note i { color: #22c55e; margin-right: 4px; }
+
+    /* Success state */
+    .form-success {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .form-success .success-icon {
+      width: 72px; height: 72px; border-radius: 50%; background: rgba(34,197,94,.12);
+      border: 2px solid #22c55e; display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; color: #22c55e; margin: 0 auto 20px;
+    }
+    .form-success h4 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+    .form-success p  { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.75; }
+
+    /* MAP SECTION */
+    .map-section { background: var(--ink2); }
+    .map-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: stretch; }
+
+    .map-frame {
+      border-radius: 16px; overflow: hidden;
+      background: var(--ink); min-height: 400px; position: relative;
+      border: 1px solid var(--border);
+    }
+    .map-placeholder {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      background: rgba(255,255,255,.02);
+    }
+    .map-pin { font-size: 3rem; }
+    .map-placeholder h4 { font-family: var(--font-h); font-size: 1.2rem; color: #fff; letter-spacing: .05em; }
+    .map-placeholder p  { font-size: .85rem; color: rgba(255,255,255,.4); text-align: center; max-width: 260px; line-height: 1.65; }
+    .map-placeholder a  { color: var(--amber); font-size: .83rem; display: inline-flex; align-items: center; gap: 6px; }
+    .map-placeholder a:hover { color: #fff; }
+
+    /* Actual Google Maps embed can replace the placeholder above */
+    .map-frame iframe { width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
+
+    .map-details { display: flex; flex-direction: column; gap: 28px; justify-content: center; }
+    .map-detail-block { }
+    .map-detail-block h5 { font-family: var(--font-h); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+    .map-detail-block p  { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.75; }
+    .map-detail-block a  { color: rgba(255,255,255,.6); }
+    .map-detail-block a:hover { color: var(--amber); }
+    .map-divider { height: 1px; background: var(--border); }
+
+    .nearby-list { display: flex; flex-direction: column; gap: 10px; }
+    .nearby-item { display: flex; align-items: center; gap: 12px; font-size: .84rem; color: rgba(255,255,255,.5); }
+    .nearby-item i { color: var(--red); width: 14px; }
+
+    /* QUICK ACTIONS */
+    .quick-actions { background: var(--ink); }
+    .qa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .qa-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 28px; text-align: center;
+      transition: all .3s var(--ease); cursor: pointer;
+    }
+    .qa-card:hover { border-color: rgba(255,51,0,.4); background: rgba(255,51,0,.05); transform: translateY(-4px); }
+    .qa-icon {
+      width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+      transition: all .3s;
+    }
+    .qa-card:nth-child(1) .qa-icon { background: rgba(255,51,0,.1); color: var(--red); }
+    .qa-card:nth-child(2) .qa-icon { background: rgba(255,153,0,.1); color: var(--amber); }
+    .qa-card:nth-child(3) .qa-icon { background: rgba(0,51,153,.15); color: #6699ff; }
+    .qa-card:hover .qa-icon { background: var(--red); color: #fff; }
+    .qa-card h4 { font-family: var(--font-h); font-size: 1.05rem; letter-spacing: .05em; color: #fff; margin-bottom: 10px; }
+    .qa-card p  { font-size: .83rem; color: rgba(255,255,255,.4); line-height: 1.7; margin-bottom: 20px; }
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .contact-split  { grid-template-columns: 1fr; }
+      .map-inner      { grid-template-columns: 1fr; }
+      .qa-grid        { grid-template-columns: 1fr 1fr; }
+      .contact-form-panel { padding: 36px 28px; }
+    }
+    @media(max-width:768px){
+      .form-row-2  { grid-template-columns: 1fr; }
+      .budget-grid { grid-template-columns: 1fr 1fr; }
+      .qa-grid     { grid-template-columns: 1fr; }
+      .social-row  { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="always-solid">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ECS<span>Promo</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+2349017264720" class="btn btn-outline-white"><i class="fas fa-phone"></i> Call Us</a>
+    </div>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="solutions.html">Solutions</a><a href="testimonials.html">Testimonials</a>
+  <a href="contact.html">Contact</a>
+  <a href="tel:+2349017264720" class="btn btn-outline-white" style="margin-top:12px;"><i class="fas fa-phone"></i> Call Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format&fit=crop&q=60');"></div>
+  <div class="blob blob-red-tr"></div>
+  <div class="blob blob-amber-bl"></div>
+  <div class="dot-grid dot-grid-tr"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Contact</span>
+      </div>
+      <div class="page-hero-eyebrow">Get In Touch</div>
+      <h1 class="page-hero-title reveal">Let's <span>Work Together</span></h1>
+      <p class="page-hero-desc reveal d1">
+        Ready to bring your next promotional campaign to life? Share your brief with our team — we respond within one business day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fas fa-circle"></i>Free Consultation</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Same-Day Response</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Custom Quotes</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Nationwide Delivery</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Sample Requests Welcome</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>B2B Specialists</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Free Consultation</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Same-Day Response</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Custom Quotes</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Nationwide Delivery</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>Sample Requests Welcome</span>
+    <span class="marquee-item"><i class="fas fa-circle"></i>B2B Specialists</span>
+  </div>
+</div>
+
+<!-- QUICK ACTIONS -->
+<section class="quick-actions section-pad-sm">
+  <div class="container">
+    <div class="qa-grid">
+      <a href="tel:+2349017264720" class="qa-card reveal">
+        <div class="qa-icon"><i class="fas fa-phone"></i></div>
+        <h4>Call Us Directly</h4>
+        <p>Speak with a member of our team for immediate assistance with your promotional brief.</p>
+        <span class="btn btn-outline-white" style="margin:0 auto;">+234-9017264720 <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="mailto:b2b@ecs.com.ng" class="qa-card reveal d1">
+        <div class="qa-icon"><i class="fas fa-envelope"></i></div>
+        <h4>Email Your Brief</h4>
+        <p>Send us your campaign brief directly. We respond to all enquiries within one business day.</p>
+        <span class="btn btn-outline-white" style="margin:0 auto;">b2b@ecs.com.ng <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="https://wa.me/2349017264720" target="_blank" class="qa-card reveal d2">
+        <div class="qa-icon"><i class="fab fa-whatsapp"></i></div>
+        <h4>WhatsApp Us</h4>
+        <p>Prefer WhatsApp? Send us a message — our team monitors it during business hours.</p>
+        <span class="btn btn-outline-white" style="margin:0 auto;">Open WhatsApp <i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MAIN FORM -->
+<section class="contact-section section-pad" id="contact-form">
+  <div class="container">
+    <div class="contact-split">
+
+      <!-- LEFT: INFO -->
+      <div class="contact-info-panel">
+        <div class="eyebrow reveal">Contact Details</div>
+        <h2 class="reveal d1">Reach <span>Us</span></h2>
+        <p class="reveal d2">We'd love to hear about your next campaign. Fill in the form or use any of the contact methods below to get in touch with our team.</p>
+
+        <div class="info-cards reveal d2">
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h5>Our Address</h5>
+              <p>1, Limca Way, Isolo Industrial Estate,<br>Isolo-Lagos, Nigeria.</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Phone</h5>
+              <p><a href="tel:+2349017264720">+234-9017264720</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email (B2B)</h5>
+              <p><a href="mailto:b2b@ecs.com.ng">b2b@ecs.com.ng</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h5>WhatsApp</h5>
+              <p><a href="https://wa.me/2349017264720" target="_blank">+234-9017264720</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-hours reveal d3">
+          <h5><i class="fas fa-clock" style="margin-right:6px;"></i> Business Hours</h5>
+          <div class="hours-row today"><span>Monday – Friday</span><span>8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span>Saturday</span><span>9:00am – 2:00pm</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+        </div>
+
+        <div class="contact-socials reveal d3">
+          <h5>Follow Us</h5>
+          <div class="social-row">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="contact-form-panel reveal d1">
+        <div class="form-header">
+          <h3>Send Us Your Brief</h3>
+          <p>Tell us about your campaign, product interest, and timeline. The more detail you share, the better we can tailor our proposal to your needs.</p>
+        </div>
+
+        <div class="form-body" id="contactForm">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" placeholder="Chukwuemeka" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" placeholder="Obi" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="you@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" placeholder="+234 800 000 0000" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" placeholder="Your Company Ltd" />
+            </div>
+            <div class="form-group">
+              <label for="role">Your Role</label>
+              <input type="text" id="role" placeholder="Brand Manager" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="solution">Solution Type *</label>
+            <select id="solution" required>
+              <option value="" disabled selected>Select a promotion type…</option>
+              <option>End User Promotions</option>
+              <option>Retail Promotions</option>
+              <option>Institutional Promotions</option>
+              <option>Corporate Gift &amp; Hampers</option>
+              <option>Branded Apparel</option>
+              <option>Event &amp; Activation Materials</option>
+              <option>Stationery &amp; Print</option>
+              <option>Tech Accessories</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Estimated Budget Range</label>
+            <div class="budget-grid">
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b1" value="under-150k" />
+                <label class="budget-label" for="b1">Under ₦150k</label>
+              </div>
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b2" value="150k-500k" />
+                <label class="budget-label" for="b2">₦150k – ₦500k</label>
+              </div>
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b3" value="500k-2m" />
+                <label class="budget-label" for="b3">₦500k – ₦2M</label>
+              </div>
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b4" value="2m-5m" />
+                <label class="budget-label" for="b4">₦2M – ₦5M</label>
+              </div>
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b5" value="5m-plus" />
+                <label class="budget-label" for="b5">₦5M+</label>
+              </div>
+              <div class="budget-opt">
+                <input type="radio" name="budget" id="b6" value="tbd" />
+                <label class="budget-label" for="b6">To Discuss</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">Campaign Timeline</label>
+            <select id="timeline">
+              <option value="" disabled selected>When do you need this?</option>
+              <option>Urgently — within 1 week</option>
+              <option>2–4 weeks</option>
+              <option>1–2 months</option>
+              <option>3+ months</option>
+              <option>Ongoing / repeat supply</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Campaign *</label>
+            <textarea id="message" placeholder="Describe your campaign objectives, target audience, product ideas, approximate quantities, and any other details that will help us prepare the best proposal for you…" required></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button class="btn btn-red btn-lg" id="submitBtn" type="button" onclick="submitForm()">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+            <p class="form-note"><i class="fas fa-lock"></i> Your information is confidential. We respond within 1 business day.</p>
+          </div>
+        </div>
+
+        <!-- Success State -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon"><i class="fas fa-check"></i></div>
+          <h4>Message Sent!</h4>
+          <p>Thank you for reaching out to Creative Branding Solutions. Our team will review your brief and get back to you within one business day.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section section-pad">
+  <div class="container">
+    <div style="margin-bottom:48px;">
+      <div class="eyebrow eyebrow-white reveal">Our Location</div>
+      <h2 class="title-light reveal d1">Find <span>Our Office</span></h2>
+    </div>
+    <div class="map-inner">
+      <div class="map-frame reveal">
+        <!-- Replace src below with your actual Google Maps embed URL -->
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+          <h4>Isolo Industrial Estate</h4>
+          <p>1, Limca Way, Isolo Industrial Estate, Isolo-Lagos, Nigeria</p>
+          <a href="https://maps.google.com/?q=Isolo+Industrial+Estate+Lagos+Nigeria" target="_blank">
+            Open in Google Maps <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="map-details reveal d1">
+        <div class="map-detail-block">
+          <h5>Office Address</h5>
+          <p>1, Limca Way<br>Isolo Industrial Estate<br>Isolo, Lagos State<br>Nigeria</p>
+        </div>
+        <div class="map-divider"></div>
+        <div class="map-detail-block">
+          <h5>Getting Here</h5>
+          <div class="nearby-list">
+            <div class="nearby-item"><i class="fas fa-car"></i> 15–20 minutes from Ikeja (Lagos Airport area)</div>
+            <div class="nearby-item"><i class="fas fa-car"></i> 25–30 minutes from Lagos Island</div>
+            <div class="nearby-item"><i class="fas fa-car"></i> 10 minutes from Oshodi transport hub</div>
+            <div class="nearby-item"><i class="fas fa-map-pin"></i> Located in Isolo Industrial Estate off Apapa-Oshodi Expressway</div>
+          </div>
+        </div>
+        <div class="map-divider"></div>
+        <div class="map-detail-block">
+          <h5>For Deliveries &amp; Collections</h5>
+          <p>Please call ahead before visiting our facility. Collections can be arranged Monday to Friday between 9:00am – 5:00pm. For interstate deliveries across Nigeria, we use trusted logistics partners at competitive rates.</p>
+        </div>
+        <a href="https://maps.google.com/?q=Isolo+Industrial+Estate+Lagos+Nigeria" target="_blank" class="btn btn-red">
+          <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-strip section-pad">
+  <div class="cta-strip-bg" style="background-image:url('Images/hero_home.webp');"></div>
+  <div class="cta-strip-bar"></div>
+  <div class="container">
+    <div class="cta-strip-inner">
+      <div class="reveal">
+        <div class="eyebrow eyebrow-white">Always Here to Help</div>
+        <h2 class="cta-strip-title">Want to Achieve the Next Level of <span>Business Success?</span></h2>
+        <p class="cta-strip-desc">Find out more about our value-added promotional solutions. Our B2B team is ready to help you plan your next winning campaign.</p>
+      </div>
+      <div class="cta-strip-actions reveal d1">
+        <a href="#contact-form" class="btn btn-red btn-lg">Send Your Brief <i class="fas fa-arrow-right"></i></a>
+        <a href="solutions.html" class="btn btn-outline-white btn-lg">View Solutions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">ECS<span>Promo</span></div>
+          <p class="footer-desc">Unique gifting and promotional products for multinational and indigenous companies across West Africa. Part of ECS Group.</p>
+          <div class="footer-contact-line"><i class="fas fa-map-marker-alt"></i> 1, Limca Way, Isolo Industrial Estate, Isolo-Lagos, Nigeria.</div>
+          <div class="footer-contact-line"><i class="fas fa-envelope"></i> b2b@ecs.com.ng</div>
+          <div class="footer-contact-line"><i class="fas fa-phone"></i> +234-9017264720</div>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Our Solutions</h5>
+          <ul class="footer-links">
+            <li><a href="solutions.html">End User Promotions</a></li>
+            <li><a href="solutions.html">Retail Promotions</a></li>
+            <li><a href="solutions.html">Institutional Promotions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">About Creative Branding Solutions</a></li>
+            <li><a href="about.html#ecs">ECS Group</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h5>Other Links</h5>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Enquire Now</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 ECS Corporate. All rights reserved.</div>
+      <div class="footer-ecs">Part of the <span>ECS Group</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('#navbar')?.classList.add('solid');
+  document.getElementById('navToggle')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+  document.getElementById('mobileClose')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+  function submitForm() {
+    // Basic validation
+    const required = ['fname','lname','email','phone','solution','message'];
+    let valid = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el || !el.value.trim()) {
+        el?.style.setProperty('border-color', 'var(--red)');
+        valid = false;
+      } else {
+        el?.style.removeProperty('border-color');
+      }
+    });
+    if (!valid) return;
+
+    // Simulate send — swap with your form handler / EmailJS / Formspree
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }, 1400);
+  }
+
+  // Reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), {threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

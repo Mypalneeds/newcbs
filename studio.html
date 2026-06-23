@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBS— Custom Merchandise Mockup | ECS Promo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ================================================================
+       Analaize Studio — ECS Brand
+       Deep Navy #0a0e1a  |  Flame Red #FF3300  |  Amber #FF9900
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #0a0e1a;
+      --ink2:     #111827;
+      --ink3:     #1a2236;
+      --red:      #FF3300;
+      --red-dk:   #cc2200;
+      --red-glow: rgba(255,51,0,.22);
+      --amber:    #FF9900;
+      --amber-dk: #e68a00;
+      --off:      #f4f6fb;
+      --muted:    #9ca3af;
+      --border:   rgba(255,255,255,0.07);
+      --border-l: rgba(255,255,255,0.12);
+      --font-h:   'Barlow Condensed', sans-serif;
+      --font-b:   'Inter', sans-serif;
+      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-b);
+      background: var(--ink);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; transition: all .2s var(--ease); }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(10,14,26,.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 68px; max-width: 1400px; margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: var(--font-h); font-weight: 900; font-size: 1.25rem;
+      letter-spacing: .06em; text-transform: uppercase; color: #fff;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-h); font-weight: 700; font-size: .7rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      background: rgba(255,153,0,.12); color: var(--amber);
+      border: 1px solid rgba(255,153,0,.25);
+      padding: 4px 12px; border-radius: 100px; margin-left: 12px;
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 20px;
+      font-family: var(--font-h); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    .nav-right a:hover { color: #fff; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--red); color: #fff;
+      font-family: var(--font-h); font-weight: 800; font-size: .78rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 100px;
+    }
+    .nav-cta:hover { background: var(--red-dk); }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap { background: var(--red); padding: 11px 0; overflow: hidden; }
+    .marquee-track { display: flex; animation: marquee 28s linear infinite; white-space: nowrap; }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--font-h); font-weight: 800; font-size: .8rem;
+      letter-spacing: .14em; text-transform: uppercase; color: #fff; padding: 0 32px;
+    }
+    .marquee-item i { font-size: .4rem; opacity: .6; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 100px 0 52px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,51,0,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dot-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 32px;
+      position: relative; z-index: 2;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+    }
+    .header-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-h); font-weight: 700; font-size: .73rem;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber);
+      margin-bottom: 16px;
+    }
+    .header-eyebrow::before { content: ''; width: 24px; height: 3px; background: var(--amber); border-radius: 2px; }
+    .header-title {
+      font-family: var(--font-h); font-weight: 900; font-size: clamp(2.8rem,5vw,5rem);
+      text-transform: uppercase; letter-spacing: -.01em; line-height: 1;
+      color: #fff; margin-bottom: 12px;
+    }
+    .header-title span { color: var(--red); }
+    .header-sub {
+      font-size: .9rem; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 460px;
+    }
+    .header-stats {
+      display: flex; gap: 32px; flex-shrink: 0;
+    }
+    .stat-block { text-align: center; }
+    .stat-n {
+      font-family: var(--font-h); font-weight: 900; font-size: 2.6rem;
+      color: var(--red); line-height: 1;
+    }
+    .stat-l {
+      font-family: var(--font-h); font-weight: 700; font-size: .68rem;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-top: 4px;
+    }
+
+    /* ── STUDIO LAYOUT ── */
+    .studio-wrap { max-width: 1400px; margin: 0 auto; padding: 32px 32px 64px; }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 380px;
+      gap: 0;
+      background: var(--ink2);
+      border: 1px solid var(--border-l);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 820px;
+    }
+
+    /* ── PANEL SHARED ── */
+    .panel-label {
+      font-family: var(--font-h); font-weight: 700; font-size: .68rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.25); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .panel-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── LEFT: PRODUCT SELECTOR ── */
+    .selector-panel {
+      background: var(--ink);
+      border-right: 1px solid var(--border);
+      overflow-y: auto; max-height: 820px;
+      padding: 24px 16px;
+    }
+    .selector-panel::-webkit-scrollbar { width: 4px; }
+    .selector-panel::-webkit-scrollbar-track { background: transparent; }
+    .selector-panel::-webkit-scrollbar-thumb { background: var(--border-l); border-radius: 4px; }
+
+    .cat-label {
+      font-family: var(--font-h); font-weight: 700; font-size: .62rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.2); padding: 12px 8px 6px;
+    }
+    .product-grid { display: flex; flex-direction: column; gap: 4px; }
+    .product-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px; border-radius: 8px;
+      cursor: pointer; transition: all .2s var(--ease);
+      border: 1px solid transparent;
+    }
+    .product-item:hover { background: rgba(255,255,255,.04); border-color: var(--border); }
+    .product-item.active {
+      background: rgba(255,51,0,.1);
+      border-color: rgba(255,51,0,.3);
+    }
+    .product-thumb {
+      width: 44px; height: 44px; border-radius: 6px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .product-thumb img { width: 36px; height: 36px; object-fit: contain; }
+    .product-name-label {
+      font-family: var(--font-h); font-weight: 700; font-size: .82rem;
+      letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.65);
+    }
+    .product-item.active .product-name-label { color: var(--red); }
+
+    /* ── CENTER: CANVAS ── */
+    .canvas-panel {
+      background: #0d1220;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 32px;
+      position: relative;
+    }
+    .canvas-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 60% at 50% 40%, rgba(255,51,0,.05), transparent 70%);
+    }
+
+    .canvas-box {
+      position: relative;
+      width: 100%; max-width: 440px;
+      aspect-ratio: 1 / 1.1;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border-l);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .product-svg-img {
+      width: 85%; height: 85%; object-fit: contain; pointer-events: none;
+    }
+    .logo-overlay {
+      position: absolute;
+      max-width: 120px; max-height: 120px;
+      cursor: move; user-select: none;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.4));
+    }
+    .logo-overlay.dragging { opacity: .75; }
+
+    .canvas-product-name {
+      font-family: var(--font-h); font-weight: 900; font-size: 1.6rem;
+      text-transform: uppercase; letter-spacing: .02em; color: #fff;
+      margin-top: 20px; text-align: center;
+    }
+    .canvas-product-name span { color: var(--red); }
+
+    .size-row {
+      width: 100%; max-width: 360px; margin-top: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .size-row label {
+      font-family: var(--font-h); font-weight: 700; font-size: .68rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.3); white-space: nowrap;
+    }
+    input[type=range] {
+      flex: 1; height: 3px; appearance: none;
+      background: var(--border-l); border-radius: 2px; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none; width: 14px; height: 14px;
+      background: var(--red); border-radius: 50%;
+    }
+
+    .canvas-actions {
+      display: flex; gap: 10px; margin-top: 20px;
+    }
+    .act-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-h); font-weight: 800; font-size: .75rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 100px; border: none; cursor: pointer;
+      transition: all .2s var(--ease);
+    }
+    .act-btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,.5);
+      border: 1px solid var(--border-l);
+    }
+    .act-btn-outline:hover { border-color: rgba(255,255,255,.35); color: #fff; }
+    .act-btn-red {
+      background: var(--red); color: #fff; border: 1px solid var(--red);
+    }
+    .act-btn-red:hover { background: var(--red-dk); box-shadow: 0 8px 24px var(--red-glow); }
+
+    /* ── RIGHT: CONTROLS ── */
+    .controls-panel {
+      background: var(--ink2);
+      border-left: 1px solid var(--border);
+      padding: 28px 24px;
+      overflow-y: auto; max-height: 820px;
+      display: flex; flex-direction: column; gap: 28px;
+    }
+    .controls-panel::-webkit-scrollbar { width: 4px; }
+    .controls-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* Upload Zone */
+    .upload-zone {
+      border: 1.5px dashed rgba(255,255,255,.15);
+      border-radius: 10px; padding: 28px 20px;
+      text-align: center; cursor: pointer;
+      transition: all .25s var(--ease);
+      background: rgba(255,255,255,.02);
+    }
+    .upload-zone:hover {
+      border-color: var(--red);
+      background: rgba(255,51,0,.05);
+    }
+    .upload-zone i {
+      font-size: 2rem; color: var(--red); margin-bottom: 10px; display: block;
+    }
+    .upload-zone p { font-size: .82rem; color: rgba(255,255,255,.45); line-height: 1.6; }
+    .upload-zone strong { color: #fff; }
+    .upload-zone input { display: none; }
+
+    .logo-preview-box {
+      display: none; margin-top: 12px;
+      border: 1px solid var(--border-l); border-radius: 8px;
+      background: rgba(255,255,255,.03); padding: 10px;
+      text-align: center;
+    }
+    .logo-preview-box img {
+      max-height: 80px; max-width: 100%; object-fit: contain; margin: 0 auto;
+    }
+
+    /* Position grid */
+    .pos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    }
+    .pos-btn {
+      padding: 10px 8px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: 6px; cursor: pointer;
+      font-family: var(--font-h); font-weight: 700; font-size: .72rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      transition: all .2s var(--ease); text-align: center;
+    }
+    .pos-btn:hover { border-color: rgba(255,255,255,.25); color: #fff; }
+    .pos-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+
+    /* Color swatches */
+    .color-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+    }
+    .color-swatch {
+      aspect-ratio: 1; border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer; transition: all .2s var(--ease);
+      position: relative;
+    }
+    .color-swatch:hover { transform: scale(1.1); }
+    .color-swatch.active {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(255,51,0,.3);
+    }
+    .color-swatch::after {
+      content: attr(title);
+      position: absolute; bottom: calc(100% + 6px); left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink); color: rgba(255,255,255,.7);
+      font-size: .6rem; font-family: var(--font-h); font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+      opacity: 0; pointer-events: none; transition: opacity .15s;
+    }
+    .color-swatch:hover::after { opacity: 1; }
+
+    /* Form */
+    .form-field { margin-bottom: 12px; }
+    .form-field input,
+    .form-field textarea {
+      width: 100%; background: rgba(255,255,255,.04);
+      border: 1px solid var(--border-l); border-radius: 8px;
+      color: #fff; font-family: var(--font-b); font-size: .85rem;
+      padding: 11px 14px; outline: none;
+      transition: border-color .2s var(--ease);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(255,255,255,.22); }
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--red); }
+    .form-field textarea { resize: vertical; min-height: 72px; }
+
+    .submit-btn {
+      width: 100%; padding: 14px; border: none; border-radius: 8px;
+      background: var(--red); color: #fff; cursor: pointer;
+      font-family: var(--font-h); font-weight: 800; font-size: .85rem;
+      letter-spacing: .14em; text-transform: uppercase;
+      transition: all .2s var(--ease);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .submit-btn:hover { background: var(--red-dk); box-shadow: 0 8px 28px var(--red-glow); transform: translateY(-1px); }
+
+    .clear-btn {
+      width: 100%; padding: 11px; border: 1px solid var(--border-l);
+      border-radius: 8px; background: transparent; color: rgba(255,255,255,.35);
+      cursor: pointer; font-family: var(--font-h); font-weight: 700; font-size: .78rem;
+      letter-spacing: .12em; text-transform: uppercase; margin-top: 8px;
+      transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .clear-btn:hover { color: #fff; border-color: rgba(255,255,255,.3); }
+
+    /* ── SUCCESS MODAL ── */
+    .modal-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.75); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      background: var(--ink2);
+      border: 1px solid var(--border-l);
+      border-radius: 16px; padding: 40px 36px;
+      max-width: 460px; width: 90%;
+      text-align: center; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: none; border: none; color: rgba(255,255,255,.4);
+      font-size: 1.1rem; cursor: pointer;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(255,51,0,.12); border: 1px solid rgba(255,51,0,.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--red); font-size: 1.4rem;
+    }
+    .modal-title {
+      font-family: var(--font-h); font-weight: 900; font-size: 1.8rem;
+      text-transform: uppercase; letter-spacing: .02em; color: #fff;
+      margin-bottom: 8px;
+    }
+    .modal-desc { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.7; margin-bottom: 20px; }
+    .modal-preview {
+      border: 1px solid var(--border-l); border-radius: 8px;
+      background: rgba(255,255,255,.03); padding: 12px;
+      margin-bottom: 20px;
+    }
+    .modal-preview img { max-height: 160px; max-width: 100%; object-fit: contain; margin: 0 auto; }
+    .modal-summary {
+      background: rgba(255,255,255,.04);
+      border-radius: 8px; padding: 14px 16px;
+      font-size: .8rem; color: rgba(255,255,255,.5); text-align: left; line-height: 1.8;
+    }
+    .modal-summary strong { color: rgba(255,255,255,.8); }
+    .modal-dismiss {
+      display: block; width: 100%; margin-top: 20px;
+      padding: 13px; border: none; border-radius: 8px;
+      background: var(--red); color: #fff; cursor: pointer;
+      font-family: var(--font-h); font-weight: 800; font-size: .82rem;
+      letter-spacing: .14em; text-transform: uppercase;
+      transition: background .2s;
+    }
+    .modal-dismiss:hover { background: var(--red-dk); }
+
+    /* ── FOOTER ── */
+    .studio-footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: var(--font-h); font-weight: 900; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.35);
+    }
+    .footer-brand span { color: var(--red); }
+    .footer-note { font-size: .75rem; color: rgba(255,255,255,.18); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px) {
+      .studio-grid { grid-template-columns: 1fr; min-height: unset; }
+      .selector-panel { max-height: unset; }
+      .product-grid { flex-direction: row; flex-wrap: wrap; }
+      .product-item { width: calc(50% - 2px); }
+      .controls-panel { max-height: unset; }
+      .header-stats { display: none; }
+    }
+    @media(max-width:600px) {
+      .studio-wrap { padding: 16px 16px 48px; }
+      .canvas-panel { padding: 28px 16px; }
+      .nav-right { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;">
+      <div class="nav-logo">ECS<span>.</span>PROMO</div>
+      <div class="nav-badge"><i class="fas fa-sparkles" style="font-size:.6rem;"></i> CBS Studio</div>
+    </div>
+    <div class="nav-right">
+      <a href="#">Products</a>
+      <a href="#">Solutions</a>
+      <a href="#">About</a>
+      <a href="#" class="nav-cta"><i class="fas fa-phone"></i> Get Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" style="margin-top:68px;">
+  <div class="marquee-track">
+    <div class="marquee-item"><i class="fas fa-circle"></i> T-SHIRTS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> HOODIES</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> MUGS &amp; DRINKWARE</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> TOTE BAGS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> CAPS &amp; HEADWEAR</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> PHONE CASES</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> NOTEBOOKS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> PROMO STICKERS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> T-SHIRTS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> HOODIES</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> MUGS &amp; DRINKWARE</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> TOTE BAGS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> CAPS &amp; HEADWEAR</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> PHONE CASES</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> NOTEBOOKS</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> PROMO STICKERS</div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="dot-bg"></div>
+  <div class="header-inner">
+    <div>
+      <div class="header-eyebrow">Powered by CBS</div>
+      <h1 class="header-title">Design Your<br><span>Branded Merch</span></h1>
+      <p class="header-sub">Upload your logo, choose a product, pick a colour — send your enquiry in 60 seconds. The ECS team handles the rest.</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-block">
+        <div class="stat-n">20+</div>
+        <div class="stat-l">Products</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">48H</div>
+        <div class="stat-l">Turnaround</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">MOQ</div>
+        <div class="stat-l" style="color:var(--amber)">50 units</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<div class="studio-wrap">
+  <div class="studio-grid">
+
+    <!-- LEFT: PRODUCT SELECTOR -->
+    <div class="selector-panel">
+      <div class="panel-label">Products</div>
+      <div id="productList" class="product-grid"></div>
+    </div>
+
+    <!-- CENTRE: CANVAS -->
+    <div class="canvas-panel">
+      <div class="canvas-box" id="productCanvas">
+        <img id="mockupImg" class="product-svg-img" alt="Product preview" />
+        <img id="logoOverlay" class="logo-overlay" style="display:none;" draggable="false" />
+      </div>
+      <div class="canvas-product-name" id="productLabel">T-<span>Shirt</span></div>
+
+      <div class="size-row">
+        <label>Logo Size</label>
+        <input type="range" id="logoSize" min="50" max="260" value="120" oninput="updateLogoSize(this.value)" />
+        <span id="sizeVal" style="font-family:var(--font-h);font-size:.78rem;color:rgba(255,255,255,.3);width:36px;">120</span>
+      </div>
+
+      <div class="canvas-actions">
+        <button class="act-btn act-btn-outline" onclick="resetLogo()">
+          <i class="fas fa-undo"></i> Reset
+        </button>
+        <button class="act-btn act-btn-red" onclick="downloadMockup()">
+          <i class="fas fa-download"></i> Download
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: CONTROLS -->
+    <div class="controls-panel">
+
+      <!-- Upload -->
+      <div>
+        <div class="panel-label">Your Logo</div>
+        <div class="upload-zone" onclick="document.getElementById('logoUpload').click()">
+          <i class="fas fa-cloud-arrow-up"></i>
+          <p><strong>Click to upload</strong><br>PNG, JPG or SVG · Max 5MB</p>
+          <input type="file" id="logoUpload" accept="image/*" />
+        </div>
+        <div class="logo-preview-box" id="logoPreviewBox">
+          <img id="logoPreviewImg" alt="Logo preview" />
+        </div>
+      </div>
+
+      <!-- Position -->
+      <div>
+        <div class="panel-label">Position</div>
+        <div class="pos-grid">
+          <button class="pos-btn" onclick="setPosition('left-chest',this)">Left</button>
+          <button class="pos-btn active" onclick="setPosition('center',this)">Centre</button>
+          <button class="pos-btn" onclick="setPosition('right-chest',this)">Right</button>
+          <button class="pos-btn" onclick="setPosition('top-left',this)">Top L</button>
+          <button class="pos-btn" onclick="setPosition('top-center',this)">Top C</button>
+          <button class="pos-btn" onclick="setPosition('bottom',this)">Bottom</button>
+        </div>
+      </div>
+
+      <!-- Colour -->
+      <div>
+        <div class="panel-label">Product Colour</div>
+        <div class="color-grid" id="colorGrid">
+          <div class="color-swatch active" style="background:#ffffff;" title="White" onclick="changeColor('#ffffff',this)"></div>
+          <div class="color-swatch" style="background:#0a0e1a;" title="Navy" onclick="changeColor('#0a0e1a',this)"></div>
+          <div class="color-swatch" style="background:#111827;" title="Charcoal" onclick="changeColor('#111827',this)"></div>
+          <div class="color-swatch" style="background:#FF3300;" title="Flame Red" onclick="changeColor('#FF3300',this)"></div>
+          <div class="color-swatch" style="background:#FF9900;" title="Amber" onclick="changeColor('#FF9900',this)"></div>
+          <div class="color-swatch" style="background:#1e3a8a;" title="Blue" onclick="changeColor('#1e3a8a',this)"></div>
+          <div class="color-swatch" style="background:#16a34a;" title="Green" onclick="changeColor('#16a34a',this)"></div>
+          <div class="color-swatch" style="background:#7c3aed;" title="Purple" onclick="changeColor('#7c3aed',this)"></div>
+          <div class="color-swatch" style="background:#dc2626;" title="Crimson" onclick="changeColor('#dc2626',this)"></div>
+          <div class="color-swatch" style="background:#ca8a04;" title="Gold" onclick="changeColor('#ca8a04',this)"></div>
+        </div>
+      </div>
+
+      <!-- Enquiry Form -->
+      <div>
+        <div class="panel-label">Send Enquiry</div>
+        <form id="enquiryForm" onsubmit="submitEnquiry(event)">
+          <div class="form-field"><input type="text" id="fName" placeholder="Your name" required /></div>
+          <div class="form-field"><input type="email" id="fEmail" placeholder="Email address" required /></div>
+          <div class="form-field"><input type="tel" id="fPhone" placeholder="Phone / WhatsApp" /></div>
+          <div class="form-field"><input type="number" id="fQty" placeholder="Quantity" min="1" value="50" /></div>
+          <div class="form-field"><textarea id="fNotes" placeholder="Additional notes…"></textarea></div>
+          <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
+          <button type="button" class="clear-btn" onclick="document.getElementById('enquiryForm').reset()"><i class="fas fa-xmark"></i> Clear Form</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#050810;">
+  <div class="studio-footer">
+    <div class="footer-brand">ECS<span>.</span>PROMO</div>
+    <div class="footer-note">© 2025 Creative Branding Solutions Nigeria. Powered by CBS Studio.</div>
+  </div>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-backdrop" id="successModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-check"></i></div>
+    <div class="modal-title">Enquiry Sent!</div>
+    <div class="modal-desc">Our sales team at ECS Promo will get back to you shortly with a personalised quote.</div>
+    <div class="modal-preview"><img id="modalMockupImg" /></div>
+    <div class="modal-summary" id="enquirySummary"></div>
+    <button class="modal-dismiss" onclick="closeModal()">Done</button>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   PRODUCT DATABASE
+================================================================ */
+const products = [
+  { id:'tshirt',    name:'T-Shirt',       cat:'Apparel' },
+  { id:'hoodie',    name:'Hoodie',         cat:'Apparel' },
+  { id:'tank',      name:'Tank Top',       cat:'Apparel' },
+  { id:'longsleeve',name:'Long Sleeve',    cat:'Apparel' },
+  { id:'polo',      name:'Polo Shirt',     cat:'Apparel' },
+  { id:'mug',       name:'Coffee Mug',     cat:'Drinkware' },
+  { id:'travelmug', name:'Travel Mug',     cat:'Drinkware' },
+  { id:'bottle',    name:'Water Bottle',   cat:'Drinkware' },
+  { id:'wineglass', name:'Wine Glass',     cat:'Drinkware' },
+  { id:'beermug',   name:'Beer Mug',       cat:'Drinkware' },
+  { id:'tote',      name:'Tote Bag',       cat:'Bags' },
+  { id:'backpack',  name:'Backpack',       cat:'Bags' },
+  { id:'cap',       name:'Cap',            cat:'Accessories' },
+  { id:'beanie',    name:'Beanie',         cat:'Accessories' },
+  { id:'phonecase', name:'Phone Case',     cat:'Tech' },
+  { id:'laptop',    name:'Laptop Sleeve',  cat:'Tech' },
+  { id:'mousepad',  name:'Mouse Pad',      cat:'Tech' },
+  { id:'notebook',  name:'Notebook',       cat:'Stationery' },
+  { id:'sticker',   name:'Sticker',        cat:'Stationery' },
+  { id:'poster',    name:'Poster',         cat:'Print' },
+];
+
+/* ================================================================
+   SVG GENERATORS
+================================================================ */
+function svgOf(name, color='#ffffff') {
+  const c = color;
+  const s = '#94a3b8';
+  const sw = 'stroke-width="2.5"';
+  const map = {
+    'T-Shirt': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M100 50 L120 30 L140 30 Q152 30 152 42 L152 105 L248 105 L248 42 Q248 30 260 30 L280 30 L300 50 L322 82 L332 94 L332 124 L310 124 L310 476 Q310 490 296 490 L104 490 Q90 490 90 476 L90 124 L68 124 L68 94 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Hoodie': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M90 62 L112 32 L132 22 Q152 22 152 42 L152 62 L172 52 L228 52 L248 62 L248 42 Q248 22 268 22 L288 32 L310 62 L332 82 L342 104 L342 144 L320 144 L320 476 Q320 494 304 494 L96 494 Q80 494 80 476 L80 144 L58 144 L58 104 Z M152 22 Q200 16 248 22 Q200 42 152 22' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Tank Top': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M130 55 L148 32 Q158 28 162 40 L162 108 L238 108 L238 40 Q242 28 252 32 L270 55 L278 476 Q278 490 264 490 L136 490 Q122 490 122 476 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Long Sleeve': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M52 82 L102 52 L120 32 L140 32 Q152 32 152 44 L152 104 L248 104 L248 44 Q248 32 260 32 L280 32 L298 52 L348 82 L360 102 L342 122 L342 302 L320 302 L310 122 L310 476 Q310 490 296 490 L104 490 Q90 490 90 476 L90 122 L80 302 L58 302 L58 122 L40 102 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Polo Shirt': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M100 50 L120 30 L140 30 Q152 30 152 42 L152 104 L180 104 L180 204 L220 204 L220 104 L248 104 L248 42 Q248 30 260 30 L280 30 L300 50 L322 82 L332 94 L332 124 L310 124 L310 476 Q310 490 296 490 L104 490 Q90 490 90 476 L90 124 L68 124 L68 94 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Coffee Mug': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='100' y='120' width='200' height='250' rx='12' fill='${c}' stroke='${s}' ${sw}/><path d='M300 180 Q354 180 354 232 Q354 284 300 284' fill='none' stroke='${s}' stroke-width='3'/><ellipse cx='200' cy='120' rx='100' ry='16' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Travel Mug': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M145 100 L134 396 Q132 420 152 422 L248 422 Q268 422 266 396 L255 100 Z' fill='${c}' stroke='${s}' ${sw}/><ellipse cx='200' cy='100' rx='55' ry='18' fill='${c}' stroke='${s}' ${sw}/><rect x='174' y='68' width='52' height='18' rx='6' fill='${s}'/></svg>`,
+    'Water Bottle': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='175' y='50' width='50' height='38' fill='${s}'/><path d='M162 88 L148 418 Q146 452 178 452 L222 452 Q254 452 252 418 L238 88 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Wine Glass': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M152 52 L140 204 Q138 256 200 262 L200 400 L152 400 L152 422 L248 422 L248 400 L200 400 L200 262 Q262 256 260 204 L248 52 Z' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Beer Mug': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='110' y='102' width='180' height='298' rx='16' fill='${c}' stroke='${s}' ${sw}/><path d='M290 152 Q334 152 334 202 L334 280 Q334 330 290 330' fill='none' stroke='${s}' stroke-width='3'/><ellipse cx='200' cy='102' rx='90' ry='18' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Tote Bag': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='100' y='150' width='200' height='298' rx='6' fill='${c}' stroke='${s}' ${sw}/><path d='M142 150 Q140 80 200 80 Q260 80 258 150' fill='none' stroke='${s}' stroke-width='3'/></svg>`,
+    'Backpack': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='120' y='100' width='160' height='320' rx='22' fill='${c}' stroke='${s}' ${sw}/><path d='M162 100 Q160 50 200 50 Q240 50 238 100' fill='none' stroke='${s}' stroke-width='3'/><rect x='162' y='202' width='76' height='76' rx='6' fill='${s}' opacity='0.2'/></svg>`,
+    'Cap': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><ellipse cx='200' cy='222' rx='122' ry='32' fill='${c}' stroke='${s}' ${sw}/><path d='M100 222 Q98 120 200 120 Q302 120 300 222' fill='${c}' stroke='${s}' ${sw}/><ellipse cx='200' cy='132' rx='78' ry='18' fill='${s}' opacity='0.25'/></svg>`,
+    'Beanie': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><path d='M122 252 Q120 150 200 148 Q280 148 278 252 L278 302 Q278 322 258 322 L142 322 Q122 322 122 302 Z' fill='${c}' stroke='${s}' ${sw}/><circle cx='200' cy='138' r='12' fill='${s}'/></svg>`,
+    'Phone Case': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='138' y='78' width='124' height='244' rx='18' fill='${c}' stroke='${s}' ${sw}/><rect x='150' y='92' width='100' height='180' rx='6' fill='${s}' opacity='0.12'/><circle cx='200' cy='296' r='13' fill='${s}' opacity='0.3'/></svg>`,
+    'Laptop Sleeve': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='78' y='152' width='244' height='182' rx='12' fill='${c}' stroke='${s}' ${sw}/><line x1='78' y1='243' x2='322' y2='243' stroke='${s}' stroke-width='1.5' stroke-dasharray='5,4'/></svg>`,
+    'Mouse Pad': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='88' y='182' width='224' height='162' rx='22' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Notebook': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='110' y='98' width='180' height='282' rx='6' fill='${c}' stroke='${s}' ${sw}/><line x1='140' y1='98' x2='140' y2='380' stroke='${s}' stroke-width='2' stroke-dasharray='4,4'/></svg>`,
+    'Sticker': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><circle cx='200' cy='252' r='102' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+    'Poster': `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect x='98' y='52' width='204' height='396' rx='6' fill='${c}' stroke='${s}' ${sw}/></svg>`,
+  };
+  return map[name] || map['T-Shirt'];
+}
+
+/* ================================================================
+   STATE
+================================================================ */
+let current = products[0];
+let logoSrc = null;
+let pos = 'center';
+let color = '#ffffff';
+let isDragging = false, offX = 0, offY = 0;
+
+/* ================================================================
+   BUILD PRODUCT LIST
+================================================================ */
+function buildList() {
+  const list = document.getElementById('productList');
+  const cats = [...new Set(products.map(p => p.cat))];
+  cats.forEach(cat => {
+    const label = document.createElement('div');
+    label.className = 'cat-label'; label.textContent = cat;
+    list.appendChild(label);
+    products.filter(p => p.cat === cat).forEach((p, gi) => {
+      const item = document.createElement('div');
+      item.className = 'product-item' + (p.id === products[0].id ? ' active' : '');
+      item.dataset.id = p.id;
+      const svg = svgOf(p.name, '#ffffff');
+      item.innerHTML = `
+        <div class="product-thumb"><img src="data:image/svg+xml,${encodeURIComponent(svg)}" alt="${p.name}" /></div>
+        <div class="product-name-label">${p.name}</div>
+      `;
+      item.addEventListener('click', () => selectProduct(p, item));
+      list.appendChild(item);
+    });
+  });
+}
+
+function selectProduct(p, el) {
+  current = p;
+  document.querySelectorAll('.product-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  updateMockup();
+  const name = p.name.split(' ');
+  document.getElementById('productLabel').innerHTML = name.length > 1
+    ? name.slice(0,-1).join(' ') + ' <span>' + name.slice(-1) + '</span>'
+    : '<span>' + p.name + '</span>';
+  if (logoSrc) setPosition(pos);
+}
+
+/* ================================================================
+   MOCKUP RENDERING
+================================================================ */
+function updateMockup() {
+  const svg = svgOf(current.name, color);
+  document.getElementById('mockupImg').src = 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+
+/* ================================================================
+   LOGO UPLOAD
+================================================================ */
+document.getElementById('logoUpload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) { alert('File too large — max 5MB'); return; }
+  const reader = new FileReader();
+  reader.onload = ev => {
+    logoSrc = ev.target.result;
+    document.getElementById('logoPreviewImg').src = logoSrc;
+    document.getElementById('logoPreviewBox').style.display = 'block';
+    const ov = document.getElementById('logoOverlay');
+    ov.src = logoSrc;
+    ov.style.display = 'block';
+    setPosition(pos);
+  };
+  reader.readAsDataURL(file);
+});
+
+/* ================================================================
+   POSITION
+================================================================ */
+function setPosition(p, btnEl) {
+  pos = p;
+  if (btnEl) {
+    document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+  const ov = document.getElementById('logoOverlay');
+  const positions = {
+    'left-chest':  { l:'30%', t:'30%' },
+    'center':      { l:'50%', t:'45%' },
+    'right-chest': { l:'70%', t:'30%' },
+    'top-left':    { l:'28%', t:'20%' },
+    'top-center':  { l:'50%', t:'20%' },
+    'bottom':      { l:'50%', t:'75%' },
+  };
+  const coord = positions[p] || positions['center'];
+  ov.style.left = coord.l;
+  ov.style.top = coord.t;
+  ov.style.transform = 'translate(-50%,-50%)';
+}
+
+/* ================================================================
+   DRAG
+================================================================ */
+const ov = document.getElementById('logoOverlay');
+ov.addEventListener('mousedown', e => {
+  isDragging = true;
+  ov.classList.add('dragging');
+  const r = ov.getBoundingClientRect();
+  offX = e.clientX - r.left - r.width / 2;
+  offY = e.clientY - r.top - r.height / 2;
+  e.preventDefault();
+});
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const cvs = document.getElementById('productCanvas').getBoundingClientRect();
+  let x = e.clientX - cvs.left - offX;
+  let y = e.clientY - cvs.top - offY;
+  x = Math.max(0, Math.min(x, cvs.width));
+  y = Math.max(0, Math.min(y, cvs.height));
+  ov.style.left = x + 'px';
+  ov.style.top = y + 'px';
+  ov.style.transform = 'translate(-50%,-50%)';
+});
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  ov.classList.remove('dragging');
+});
+// Touch support
+ov.addEventListener('touchstart', e => {
+  isDragging = true;
+  const t = e.touches[0];
+  const r = ov.getBoundingClientRect();
+  offX = t.clientX - r.left - r.width / 2;
+  offY = t.clientY - r.top - r.height / 2;
+  e.preventDefault();
+}, { passive: false });
+document.addEventListener('touchmove', e => {
+  if (!isDragging) return;
+  const t = e.touches[0];
+  const cvs = document.getElementById('productCanvas').getBoundingClientRect();
+  let x = t.clientX - cvs.left - offX;
+  let y = t.clientY - cvs.top - offY;
+  ov.style.left = Math.max(0, Math.min(x, cvs.width)) + 'px';
+  ov.style.top = Math.max(0, Math.min(y, cvs.height)) + 'px';
+  ov.style.transform = 'translate(-50%,-50%)';
+  e.preventDefault();
+}, { passive: false });
+document.addEventListener('touchend', () => { isDragging = false; });
+
+/* ================================================================
+   SIZE
+================================================================ */
+function updateLogoSize(v) {
+  document.getElementById('logoOverlay').style.maxWidth = v + 'px';
+  document.getElementById('logoOverlay').style.maxHeight = v + 'px';
+  document.getElementById('sizeVal').textContent = v;
+}
+
+/* ================================================================
+   COLOUR
+================================================================ */
+function changeColor(c, el) {
+  color = c;
+  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+  if (el) el.classList.add('active');
+  updateMockup();
+}
+
+/* ================================================================
+   RESET
+================================================================ */
+function resetLogo() {
+  logoSrc = null;
+  const ov = document.getElementById('logoOverlay');
+  ov.style.display = 'none'; ov.src = '';
+  document.getElementById('logoPreviewImg').src = '';
+  document.getElementById('logoPreviewBox').style.display = 'none';
+  document.getElementById('logoUpload').value = '';
+  document.getElementById('logoSize').value = 120;
+  document.getElementById('sizeVal').textContent = 120;
+  updateLogoSize(120);
+}
+
+/* ================================================================
+   DOWNLOAD
+================================================================ */
+function compositeToCanvas(w, h) {
+  const canvas = document.getElementById('productCanvas');
+  const mockImg = document.getElementById('mockupImg');
+  const logoEl = document.getElementById('logoOverlay');
+
+  const tc = document.createElement('canvas');
+  tc.width = w; tc.height = h;
+  const ctx = tc.getContext('2d');
+  ctx.drawImage(mockImg, 0, 0, w, h);
+
+  if (logoSrc) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        const cvr = canvas.getBoundingClientRect();
+        const sx = w / cvr.width;
+        const sy = h / cvr.height;
+        const lr = logoEl.getBoundingClientRect();
+        const x = (lr.left - cvr.left + lr.width / 2) * sx - (logoEl.offsetWidth * sx) / 2;
+        const y = (lr.top - cvr.top + lr.height / 2) * sy - (logoEl.offsetHeight * sy) / 2;
+        ctx.drawImage(img, x, y, logoEl.offsetWidth * sx, logoEl.offsetHeight * sy);
+        resolve(tc);
+      };
+      img.src = logoSrc;
+    });
+  }
+  return Promise.resolve(tc);
+}
+
+function downloadMockup() {
+  if (!logoSrc) { alert('Upload a logo first!'); return; }
+  const cvs = document.getElementById('productCanvas');
+  compositeToCanvas(cvs.offsetWidth * 2, cvs.offsetHeight * 2).then(tc => {
+    const a = document.createElement('a');
+    a.download = current.name.toLowerCase().replace(/\s+/g, '-') + '-mockup.png';
+    a.href = tc.toDataURL();
+    a.click();
+  });
+}
+
+/* ================================================================
+   FORM SUBMIT
+================================================================ */
+function submitEnquiry(e) {
+  e.preventDefault();
+  if (!logoSrc) { alert('Please upload a logo before sending.'); return; }
+  const name  = document.getElementById('fName').value;
+  const email = document.getElementById('fEmail').value;
+  const phone = document.getElementById('fPhone').value;
+  const qty   = document.getElementById('fQty').value;
+  const notes = document.getElementById('fNotes').value;
+  const swatch = document.querySelector('.color-swatch.active');
+  const colorName = swatch ? swatch.getAttribute('title') : color;
+
+  const cvs = document.getElementById('productCanvas');
+  compositeToCanvas(800, 880).then(tc => {
+    document.getElementById('modalMockupImg').src = tc.toDataURL();
+    document.getElementById('enquirySummary').innerHTML =
+      `<strong>Product:</strong> ${current.name}<br>
+       <strong>Colour:</strong> ${colorName}<br>
+       <strong>Position:</strong> ${pos.replace('-',' ')}<br>
+       <strong>Name:</strong> ${name}<br>
+       <strong>Email:</strong> ${email}<br>
+       ${phone ? '<strong>Phone:</strong> ' + phone + '<br>' : ''}
+       <strong>Qty:</strong> ${qty} units<br>
+       ${notes ? '<strong>Notes:</strong> ' + notes : ''}`;
+    document.getElementById('successModal').classList.add('open');
+  });
+}
+
+function closeModal() {
+  document.getElementById('successModal').classList.remove('open');
+}
+
+/* ================================================================
+   INIT
+================================================================ */
+buildList();
+updateMockup();
+document.getElementById('productLabel').innerHTML = 'T-<span>Shirt</span>';
+</script>
+</body>
+</html>
